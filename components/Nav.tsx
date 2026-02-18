@@ -33,47 +33,10 @@ export function Nav() {
     closeMenu();
   }, [pathname, closeMenu]);
 
-  const isCourse = ["/syllabus", "/calendar", "/projects", "/about"].includes(pathname);
-
-  const subLinks = [
-    { href: "/syllabus", label: "Syllabus" },
-    { href: "/calendar", label: "Calendar" },
-    { href: "/projects", label: "Projects" },
-    { href: "/about", label: "About" },
-  ];
-
   return (
-    <>
-      <nav className="top-nav">
-        <div className="nav-spacer" />
-        <div className="nav-brand">
-          <Link href="/" className="nav-logo">Post Training</Link>
-        </div>
-        <div className="nav-links">
-          <Link href="/syllabus" className="nav-link">Course</Link>
-        </div>
-        <button
-          className={`nav-toggle ${menuOpen ? "active" : ""}`}
-          aria-label="Toggle menu"
-          onClick={toggleMenu}
-        >
-          <span className="hamburger"></span>
-        </button>
-      </nav>
-      {isCourse && (
-        <div className="sub-nav">
-          {subLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`sub-nav-link ${pathname === link.href ? "active" : ""}`}
-              onClick={closeMenu}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </>
+    <nav className="top-nav">
+      <Link href="/" className="nav-logo">Post Training</Link>
+      <Link href="/syllabus" className="nav-course">Course</Link>
+    </nav>
   );
 }
