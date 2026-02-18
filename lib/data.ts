@@ -47,7 +47,7 @@ export const videos: VideoItem[] = [
   {
     title: "What We Owe Machines",
     date: "Jan 26",
-    module: "Module 1 · Fundamentals",
+    module: "Module One, Fundamentals",
     thumbnail: "/images/What we owe machines-lecture.png",
     videoId: "https://iframe.mediadelivery.net/embed/593384/9d2a9eb8-f376-448f-b346-1047f83c2252?autoplay=true",
     slides: "/slides/WhatWeOweMachines.pdf",
@@ -56,7 +56,7 @@ export const videos: VideoItem[] = [
   {
     title: "The Lifecycle of a Language Model",
     date: "Feb 2",
-    module: "Module 1 · Fundamentals",
+    module: "Module One, Fundamentals",
     thumbnail: "/images/The Lifecycle of a Language Model.jpg",
     videoId: "F539mrLBUaE",
     upcoming: true,
@@ -64,7 +64,7 @@ export const videos: VideoItem[] = [
   {
     title: "Post-Training Foundations",
     date: "Feb 9",
-    module: "Module 2 · Post-Training",
+    module: "Module Two, Post-Training",
     thumbnail: "/images/posttraining-foundations.jpg",
     videoId: "rKu0FKKNP4M",
     upcoming: true,
@@ -72,7 +72,7 @@ export const videos: VideoItem[] = [
   {
     title: "RLHF and Reward Learning",
     date: "Feb 16",
-    module: "Module 2 · Post-Training",
+    module: "Module Two, Post-Training",
     thumbnail: "/images/RLHF and Reward Learning.jpg",
     videoId: "IPukuYb9xWw",
     upcoming: true,
@@ -80,7 +80,7 @@ export const videos: VideoItem[] = [
   {
     title: "Alignment Methods & Model Behavior",
     date: "Feb 23",
-    module: "Module 2 · Post-Training",
+    module: "Module Two, Post-Training",
     thumbnail: "/images/Alignment Methods & Model Behavior.jpg",
     videoId: "ydYDqZQpim8",
     upcoming: true,
@@ -88,7 +88,7 @@ export const videos: VideoItem[] = [
   {
     title: "Evals as Research",
     date: "Mar 2",
-    module: "Module 2 · Post-Training",
+    module: "Module Two, Post-Training",
     thumbnail: "/images/Evals as Research.jpg",
     videoId: "7ynL4U2v2Sw",
     upcoming: true,

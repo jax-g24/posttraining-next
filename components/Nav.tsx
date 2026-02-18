@@ -33,7 +33,9 @@ export function Nav() {
     closeMenu();
   }, [pathname, closeMenu]);
 
-  const links = [
+  const isCourse = ["/syllabus", "/calendar", "/projects", "/about"].includes(pathname);
+
+  const subLinks = [
     { href: "/syllabus", label: "Syllabus" },
     { href: "/calendar", label: "Calendar" },
     { href: "/projects", label: "Projects" },
@@ -41,32 +43,37 @@ export function Nav() {
   ];
 
   return (
-    <nav className="top-nav">
-      <div className="nav-brand">
-        <Link href="/" className="nav-logo">Post Training</Link>
-        {!isHomepage && (
-          <a href="https://course.posttraining.ai" className="nav-course-badge">Course</a>
-        )}
-      </div>
-      <button
-        className={`nav-toggle ${menuOpen ? "active" : ""}`}
-        aria-label="Toggle menu"
-        onClick={toggleMenu}
-      >
-        <span className="hamburger"></span>
-      </button>
-      <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`nav-link ${pathname === link.href ? "active" : ""}`}
-            onClick={closeMenu}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    </nav>
+    <>
+      <nav className="top-nav">
+        <div className="nav-spacer" />
+        <div className="nav-brand">
+          <Link href="/" className="nav-logo">Post Training</Link>
+        </div>
+        <div className="nav-links">
+          <Link href="/syllabus" className="nav-link">Course</Link>
+        </div>
+        <button
+          className={`nav-toggle ${menuOpen ? "active" : ""}`}
+          aria-label="Toggle menu"
+          onClick={toggleMenu}
+        >
+          <span className="hamburger"></span>
+        </button>
+      </nav>
+      {isCourse && (
+        <div className="sub-nav">
+          {subLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`sub-nav-link ${pathname === link.href ? "active" : ""}`}
+              onClick={closeMenu}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
   );
 }

@@ -14,66 +14,53 @@ export default function CalendarPage() {
       </header>
 
       <main className="course-content">
-        <div className="calendar-grid">
-          <div className="calendar-header">
-            <div className="calendar-header-cell">Date</div>
-            <div className="calendar-header-cell">Lecture</div>
-            <div className="calendar-header-cell">Technical Work</div>
-            <div className="calendar-header-cell">Materials</div>
-            <div className="calendar-header-cell">Assignments Due</div>
-          </div>
-
+        <div className="calendar-cards">
           {calendarWeeks.map((week, i) => (
-            <div key={i} className={`calendar-row ${week.variant || ""}`}>
-              <div className="calendar-cell">
-                <div className="date-display">
-                  <div className="date-month">{week.month}</div>
-                  <div className="date-day">{week.day}</div>
-                </div>
+            <div key={i} className={`cal-card ${week.variant || ""}`}>
+              <div className="cal-card-date">
+                <span className="cal-card-month">{week.month}</span>
+                <span className="cal-card-day">{week.day}</span>
               </div>
-              <div className="calendar-cell">
-                <div className="cell-label">{week.weekLabel}</div>
-                <div className="cell-content" style={week.variant === "highlight" ? { fontWeight: 600 } : undefined}>
-                  {week.lecture}
-                </div>
-              </div>
-              <div className="calendar-cell">
-                {week.technicalWork.length > 0 ? (
-                  week.technicalWork.map((tw, j) =>
-                    tw.url ? (
-                      <div key={j} className={j === 0 ? "cell-content" : "cell-subcontent"}>
-                        <a href={tw.url} target="_blank" rel="noopener noreferrer" className="calendar-material-link">
-                          {tw.title}
-                        </a>
-                      </div>
-                    ) : (
-                      <div key={j} className={j === 0 ? "cell-content" : "cell-subcontent"}>
-                        {tw.title}
-                      </div>
-                    )
-                  )
-                ) : (
-                  <div className="cell-content">—</div>
-                )}
-              </div>
-              <div className="calendar-cell">
-                {week.materials.length > 0 ? (
-                  <div className="cell-content">
-                    {week.materials.map((mat, j) => (
-                      <a key={j} href={mat.url} target="_blank" rel="noopener noreferrer" className="calendar-material-link">
-                        {mat.label}
-                      </a>
-                    ))}
+              <div className="cal-card-body">
+                <div className="cal-card-section">
+                  <div className="cal-card-label">{week.weekLabel}</div>
+                  <div className="cal-card-lecture" style={week.variant === "highlight" ? { fontWeight: 500 } : undefined}>
+                    {week.lecture}
                   </div>
-                ) : (
-                  <div className="cell-content">—</div>
+                </div>
+                {week.technicalWork.length > 0 && (
+                  <div className="cal-card-section">
+                    <div className="cal-card-label">Technical Work</div>
+                    <div className="cal-card-row">
+                      {week.technicalWork.map((tw, j) =>
+                        tw.url ? (
+                          <a key={j} href={tw.url} target="_blank" rel="noopener noreferrer" className="cal-card-link">
+                            {tw.title}
+                          </a>
+                        ) : (
+                          <span key={j} className="cal-card-meta">{tw.title}</span>
+                        )
+                      )}
+                    </div>
+                  </div>
                 )}
-              </div>
-              <div className="calendar-cell">
-                {week.assignment ? (
-                  <span className={`calendar-tag ${week.assignment.type}`}>{week.assignment.text}</span>
-                ) : (
-                  <div className="cell-content">—</div>
+                {week.materials.length > 0 && (
+                  <div className="cal-card-section">
+                    <div className="cal-card-label">Materials</div>
+                    <div className="cal-card-row">
+                      {week.materials.map((mat, j) => (
+                        <a key={j} href={mat.url} target="_blank" rel="noopener noreferrer" className="cal-card-link">
+                          {mat.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {week.assignment && (
+                  <div className="cal-card-section">
+                    <div className="cal-card-label">Due</div>
+                    <div className="cal-card-tag">{week.assignment.text}</div>
+                  </div>
                 )}
               </div>
             </div>

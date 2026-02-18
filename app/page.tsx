@@ -8,10 +8,11 @@ export default function Home() {
     <VideoModalProvider>
       <HeroVideo />
       <section className="video-grid-section">
-        <h2 className="grid-title">
-          <span className="grid-title-names">Karina Nguyen &amp; Kevin Miao,</span>{" "}
-          <span className="grid-title-course">Building Thoughtful AI Systems</span>
-        </h2>
+        <div className="grid-header">
+          <h2 className="grid-title">Building Thoughtful AI Systems,</h2>
+          <p className="grid-names">Karina Nguyen &amp; Kevin Miao</p>
+          <p className="grid-subtitle">Lecture Series</p>
+        </div>
         <div className="video-grid">
           {videos.map((video, i) => (
             <VideoCard key={i} video={video} />
