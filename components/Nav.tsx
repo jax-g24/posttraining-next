@@ -33,10 +33,34 @@ export function Nav() {
     closeMenu();
   }, [pathname, closeMenu]);
 
+  const isCourse = ["/syllabus", "/calendar", "/projects", "/about"].includes(pathname);
+
+  const courseLinks = [
+    { href: "/syllabus", label: "Syllabus" },
+    { href: "/calendar", label: "Calendar" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about", label: "About" },
+  ];
+
   return (
-    <nav className="top-nav">
-      <Link href="/" className="nav-logo">Post Training</Link>
-      <Link href="/syllabus" className="nav-course">Course</Link>
-    </nav>
+    <>
+      <nav className={`top-nav ${isCourse ? "top-nav-dark" : ""}`}>
+        <Link href="/" className="nav-logo">Post Training</Link>
+        <Link href="/syllabus" className="nav-course">Course</Link>
+      </nav>
+      {isCourse && (
+        <nav className="course-nav">
+          {courseLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`course-nav-link ${pathname === link.href ? "active" : ""}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      )}
+    </>
   );
 }

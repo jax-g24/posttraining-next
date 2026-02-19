@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { modules } from "@/lib/data";
+import { ModuleCarousel } from "@/components/ModuleCarousel";
 
 export const metadata: Metadata = {
   title: "Syllabus · Post Training",
@@ -17,11 +18,9 @@ export default function SyllabusPage() {
             turn foundation models into reliable, useful AI systems.
           </p>
           <div className="course-details">
-            <p className="course-meta">CDSS 94 · Spring 2026</p>
-            <p className="course-meta">
-              Mondays | <span className="course-collab">Collaboration</span> 5:10–6PM in Cory 521 |{" "}
-              <span className="course-collab">Lecture</span> 6:10–7:30PM in Soda 306
-            </p>
+            <p className="course-meta">Mondays, CDSS 94, Spring 2026</p>
+            <p className="course-meta">Collaboration 5:10–6PM in Cory 521</p>
+            <p className="course-meta">Lecture 6:10–7:30PM in Soda 306</p>
           </div>
         </div>
         <div className="teaching-staff-right">
@@ -39,51 +38,7 @@ export default function SyllabusPage() {
       </header>
 
       <main className="course-content">
-        <div className="modules-grid">
-          {modules.map((mod) => (
-            <div key={mod.number} className={`module-card ${mod.upcoming ? "upcoming" : ""}`}>
-              <div className="module-hero" style={{ backgroundImage: `url('${mod.heroImage}')` }}>
-                <div className="module-overlay">
-                  <span className="module-number">Module {mod.number}</span>
-                  <h2 className="module-title">{mod.title}</h2>
-                </div>
-              </div>
-              <div className="module-lectures">
-                {mod.lectures.map((lec, i) => (
-                  <div key={i} className="lecture-item">
-                    <div className="lecture-header">
-                      <span className="lecture-name">{lec.name}</span>
-                      <span className="lecture-date">{lec.date}</span>
-                    </div>
-                    {lec.description && <p className="lecture-description">{lec.description}</p>}
-                    {lec.links.length > 0 && (
-                      <div className="lecture-links">
-                        {lec.links.map((link, j) =>
-                          link.disabled ? (
-                            <span key={j} className="lecture-link disabled">{link.label}</span>
-                          ) : (
-                            <a
-                              key={j}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`lecture-link ${link.variant === "slides" ? "slides" : ""}`}
-                            >
-                              {link.label}
-                            </a>
-                          )
-                        )}
-                      </div>
-                    )}
-                    {lec.tag && (
-                      <span className={`lecture-tag tag-${lec.tag.type}`}>{lec.tag.text}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <ModuleCarousel modules={modules} />
       </main>
     </div>
   );
