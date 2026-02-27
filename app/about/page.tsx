@@ -10,6 +10,18 @@ export default function AboutPage() {
       <header className="page-header">
         <h1 className="page-title">About</h1>
         <p className="page-subtitle">Course policies, structure, and information</p>
+        <div className="teaching-staff-right">
+          <a href="https://x.com/karinanguyen_" target="_blank" rel="noopener noreferrer" className="staff-member-large">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/karina.jpeg" alt="Karina Nguyen" />
+            <span>Karina Nguyen</span>
+          </a>
+          <a href="https://x.com/KJHMiao" target="_blank" rel="noopener noreferrer" className="staff-member-large">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/kevin.png" alt="Kevin Miao" />
+            <span>Kevin Miao</span>
+          </a>
+        </div>
       </header>
 
       <main className="course-content">

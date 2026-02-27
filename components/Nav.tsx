@@ -50,15 +50,17 @@ export function Nav() {
       </nav>
       {isCourse && (
         <nav className="course-nav">
-          {courseLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`course-nav-link ${pathname === link.href ? "active" : ""}`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <div className="course-nav-links">
+            {courseLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`course-nav-link ${pathname === link.href ? "active" : ""}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </nav>
       )}
     </>

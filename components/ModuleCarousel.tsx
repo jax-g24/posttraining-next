@@ -1,75 +1,40 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import type { Module } from "@/lib/data";
 
 export function ModuleCarousel({ modules }: { modules: Module[] }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
   const [expanded, setExpanded] = useState<number | null>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const count = modules.length;
 
-  const checkScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll, { passive: true });
-    window.addEventListener("resize", checkScroll);
-    return () => {
-      el.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, [checkScroll]);
-
-  const scroll = (dir: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const card = el.querySelector(".module-card") as HTMLElement;
-    const amount = card ? card.offsetWidth + 18 : 400;
-    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  const go = (dir: -1 | 1) => {
+    setExpanded(null);
+    setIndex((prev) => (prev + dir + count) % count);
   };
+
+  const toggle = (num: number) => setExpanded(expanded === num ? null : num);
 
   return (
     <div className="carousel-wrapper">
-      <div className="carousel-arrows">
-        <button
-          className={`carousel-arrow ${!canScrollLeft ? "hidden" : ""}`}
-          onClick={() => scroll("left")}
-          aria-label="Scroll left"
-        >
-          &#8249;
-        </button>
-        <button
-          className={`carousel-arrow ${!canScrollRight ? "hidden" : ""}`}
-          onClick={() => scroll("right")}
-          aria-label="Scroll right"
-        >
-          &#8250;
-        </button>
-      </div>
-      <div className="modules-grid" ref={scrollRef}>
-        {modules.map((mod) => (
-          <div
-            key={mod.number}
-            className={`module-card ${mod.upcoming ? "upcoming" : ""} ${expanded === mod.number ? "expanded" : ""}`}
-          >
-            <div className="module-hero" style={{ backgroundImage: `url('${mod.heroImage}')` }}>
-              {expanded === mod.number && (
-                <div className="module-info-panel">
+      <div className="carousel-stage">
+        {modules.map((mod, i) => {
+          const isActive = i === index;
+          const isExpanded = expanded === mod.number && isActive;
+          return (
+            <div
+              key={mod.number}
+              className={`module-card ${isActive ? "active" : ""} ${mod.upcoming ? "upcoming" : ""} ${isExpanded ? "expanded" : ""}`}
+              onClick={() => isActive && toggle(mod.number)}
+            >
+              <div className="module-hero" style={{ backgroundImage: `url('${mod.heroImage}')` }}>
+                <div className={`module-info-panel ${isExpanded ? "visible" : ""}`}>
                   <div className="module-info-header">
-                    <span className="module-number-dark">Module {mod.number}</span>
                     <h2 className="module-title-dark">{mod.title}</h2>
                   </div>
                   <div className="module-lectures">
-                    {mod.lectures.map((lec, i) => (
-                      <div key={i} className="lecture-item">
+                    {mod.lectures.map((lec, li) => (
+                      <div key={li} className="lecture-item">
                         <div className="lecture-header">
                           <span className="lecture-name">{lec.name}</span>
                           <span className="lecture-date">{lec.date}</span>
@@ -87,6 +52,7 @@ export function ModuleCarousel({ modules }: { modules: Module[] }) {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className={`lecture-link ${link.variant === "slides" ? "slides" : ""}`}
+                                  onClick={(e) => e.stopPropagation()}
                                 >
                                   {link.label}
                                 </a>
@@ -101,20 +67,41 @@ export function ModuleCarousel({ modules }: { modules: Module[] }) {
                     ))}
                   </div>
                 </div>
-              )}
-              <button
-                className={`module-expand-btn ${expanded === mod.number ? "expanded" : ""}`}
-                onClick={() => setExpanded(expanded === mod.number ? null : mod.number)}
-                aria-label={expanded === mod.number ? "Collapse" : "Expand"}
-              >
-                {expanded === mod.number ? "−" : "+"}
-              </button>
+                <button
+                  className={`module-expand-btn ${isExpanded ? "expanded" : ""}`}
+                  onClick={(e) => { e.stopPropagation(); toggle(mod.number); }}
+                  aria-label={isExpanded ? "Collapse" : "Expand"}
+                >
+                  {isExpanded ? "−" : "+"}
+                </button>
+              </div>
+              <div className="module-card-label">
+                Module {["One", "Two", "Three", "Four"][mod.number - 1]}
+              </div>
             </div>
-            <div className="module-card-label">
-              Module {["One", "Two", "Three", "Four"][mod.number - 1]}
-            </div>
-          </div>
-        ))}
+          );
+        })}
+      </div>
+
+      <div className="carousel-controls">
+        <div className="carousel-dots">
+          {modules.map((_, i) => (
+            <button
+              key={i}
+              className={`carousel-dot ${i === index ? "active" : ""}`}
+              onClick={() => { setExpanded(null); setIndex(i); }}
+              aria-label={`Go to module ${i + 1}`}
+            />
+          ))}
+        </div>
+        <div className="carousel-arrows">
+          <button className="carousel-arrow" onClick={() => go(-1)} aria-label="Previous">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 2 4 7 9 12"/></svg>
+          </button>
+          <button className="carousel-arrow" onClick={() => go(1)} aria-label="Next">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="5 2 10 7 5 12"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   );
