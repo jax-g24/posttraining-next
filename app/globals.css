@@ -7,23 +7,9 @@
    0. Font Face
    ========================================================================== */
 @font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("/fonts/NeueHaasGroteskDisplay-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("/fonts/NeueHaasGroteskDisplay-Medium.woff2") format("woff2");
+    font-family: "Die Grotesk";
+    src: url("/fonts/die-grotesk-d-medium.woff2") format("woff2");
     font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("/fonts/NeueHaasGroteskDisplay-Bold.woff2") format("woff2");
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
@@ -70,7 +56,7 @@
 }
 
 body {
-    font-family: "Neue Haas Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Die Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text-primary);
     font-size: var(--fs-body);
