@@ -18,14 +18,25 @@
    1. Variables
    ========================================================================== */
 :root {
+    /* Spacing scale: 4px base, each step ~1.5–2x previous */
+    --space-1: 4px;    /* micro: inner padding, tight gaps */
+    --space-2: 8px;    /* small: icon gaps, inline spacing */
+    --space-3: 12px;   /* medium: between related items */
+    --space-4: 16px;   /* default: between sibling elements */
+    --space-5: 24px;   /* large: between groups */
+    --space-6: 32px;   /* section: between content blocks */
+    --space-7: 48px;   /* region: between major sections */
+    --space-8: 64px;   /* page: header/footer breathing room */
+    --space-9: 96px;   /* max: page-level vertical rhythm */
+
     --fs-display: clamp(28px, 1rem + 3.5vw, 48px);
     --fs-heading: clamp(18px, 0.5rem + 2.5vw, 28px);
     --fs-body: clamp(11px, 0.4rem + 1vw, 14px);
     --fs-small: clamp(8px, 0.25rem + 0.7vw, 10px);
 
     --grid-columns: 12;
-    --grid-gutter: 20px;
-    --grid-margin: clamp(24px, 2vw + 1rem, 60px);
+    --grid-gutter: var(--space-7);
+    --grid-margin: var(--space-7);
 
     --bg: #eeeeee;
     --bg-card: #fff;
@@ -61,7 +72,7 @@ body {
     color: var(--text-primary);
     font-size: var(--fs-body);
     line-height: 1.1;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -89,7 +100,7 @@ a {
     padding-right: var(--grid-margin);
 }
 
-.col-slide    { grid-column: 3 / 11; }
+.col-slide    { grid-column: 1 / -1; }
 .col-title    { grid-column: 3 / 7; }
 .col-body     { grid-column: 7 / 11; }
 .col-full     { grid-column: 1 / -1; }
@@ -109,15 +120,15 @@ a {
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     column-gap: var(--grid-gutter);
     align-items: center;
-    padding: 24px var(--grid-margin);
+    padding: var(--space-7) var(--grid-margin);
 }
 
 .nav-logo {
     grid-column: 1 / 3;
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     transition: color 0.2s;
 }
 
@@ -129,9 +140,9 @@ a {
     grid-column: 11 / -1;
     text-align: right;
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     transition: color 0.2s;
 }
 
@@ -163,11 +174,11 @@ a {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     column-gap: var(--grid-gutter);
-    padding: 0 var(--grid-margin) 24px;
+    padding: 0 var(--grid-margin) var(--space-7);
 }
 
 .course-nav-links {
-    grid-column: 3 / 11;
+    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     gap: var(--grid-gutter);
@@ -177,7 +188,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 400;
     color: rgba(0, 0, 0, 0.35);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     transition: color 0.2s;
 }
 
@@ -197,14 +208,17 @@ a {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     column-gap: var(--grid-gutter);
-    padding: 0 var(--grid-margin) 160px;
+    padding: 0 var(--grid-margin) var(--space-9);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .course-header {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
-    padding: 80px 0 64px;
+    padding: var(--space-8) 0 var(--space-7);
 }
 
 .course-header-left {
@@ -215,21 +229,21 @@ a {
 }
 
 .course-title-col {
-    grid-column: 3 / 7;
+    grid-column: 1 / 5;
 }
 
 .course-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0;
-    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-3);
 }
 
 .course-meta {
     font-size: var(--fs-body);
     color: rgba(0, 0, 0, 0.4);
     font-weight: 400;
-    margin-bottom: 4px;
+    margin-bottom: var(--space-1);
 }
 
 .course-collab {
@@ -241,14 +255,14 @@ a {
     font-size: var(--fs-heading);
     line-height: 1.4;
     color: var(--text-primary);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     margin-top: 0;
     text-align: left;
     max-width: 640px;
 }
 
 .course-header-body {
-    grid-column: 7 / 11;
+    grid-column: 5 / -1;
 }
 
 .course-content {
@@ -268,28 +282,28 @@ a {
 .page-header ~ .course-content > .calendar-cards,
 .page-header ~ .course-content > .projects-section,
 .page-header ~ .course-content > .policies-section {
-    grid-column: 3 / 11;
+    grid-column: 1 / -1;
 }
 
 .course-details {
-    margin-top: 24px;
+    margin-top: var(--space-7);
     text-align: left;
 }
 
 /* Teaching Staff */
 .teaching-staff-right {
-    grid-column: 3 / 11;
+    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--grid-gutter);
-    margin-top: 32px;
+    margin-top: var(--space-6);
 }
 
 .staff-member-large {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: var(--space-2);
     color: var(--text-primary);
 }
 
@@ -301,7 +315,7 @@ a {
 
 .staff-member-large span {
     font-size: var(--fs-body);
-    font-weight: 700;
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.4);
 }
 
@@ -311,15 +325,15 @@ a {
 
 /* Page Header — inset to slide area on course pages */
 .page-header {
-    grid-column: 3 / 11;
-    padding: 80px 0 48px;
+    grid-column: 1 / -1;
+    padding: var(--space-8) 0 var(--space-7);
 }
 
 .page-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0;
-    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-2);
 }
 
 .page-subtitle {
@@ -340,7 +354,7 @@ a {
 
 .carousel-stage {
     position: relative;
-    grid-column: 3 / 11;
+    grid-column: 1 / -1;
     aspect-ratio: 16 / 9;
 }
 
@@ -366,16 +380,16 @@ a {
 
 .carousel-controls {
     position: relative;
-    grid-column: 3 / 11;
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: var(--space-4);
 }
 
 .carousel-dots {
     display: flex;
-    gap: 8px;
+    gap: var(--space-2);
 }
 
 .carousel-dot {
@@ -402,7 +416,7 @@ a {
     position: absolute;
     right: 0;
     display: flex;
-    gap: 6px;
+    gap: var(--space-2);
 }
 
 .carousel-arrow {
@@ -503,7 +517,7 @@ a {
 .module-title-dark {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     line-height: 1.05;
     color: var(--text-primary);
 }
@@ -512,8 +526,8 @@ a {
     font-size: var(--fs-heading);
     font-weight: 600;
     color: var(--text-primary);
-    padding: 10px 0 0;
-    letter-spacing: 0;
+    padding: var(--space-3) 0 0;
+    letter-spacing: 0.02em;
 }
 
 .module-lectures {
@@ -526,12 +540,12 @@ a {
 
 .lecture-item {
     position: relative;
-    padding: 14px 0;
+    padding: var(--space-4) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .lecture-item:first-child {
-    padding-top: 14px;
+    padding-top: var(--space-4);
 }
 
 .lecture-item:last-child {
@@ -543,14 +557,14 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 12px;
+    gap: var(--space-3);
 }
 
 .lecture-name {
     font-size: clamp(14px, 0.5rem + 0.8vw, 17px);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .lecture-date {
@@ -565,7 +579,7 @@ a {
     font-size: clamp(12px, 0.4rem + 0.7vw, 14px);
     color: rgba(0, 0, 0, 0.4);
     line-height: 1.5;
-    margin: 6px 0 0 0;
+    margin: var(--space-2) 0 0 0;
 }
 
 .lecture-tag {
@@ -575,7 +589,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: rgba(0, 0, 0, 0.3);
-    margin-top: 6px;
+    margin-top: var(--space-2);
 }
 
 .lecture-tag.tag-due {
@@ -590,8 +604,8 @@ a {
 .lecture-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
 }
 
 .lecture-link {
@@ -601,7 +615,7 @@ a {
     font-weight: 500;
     color: var(--text-primary);
     letter-spacing: 0.02em;
-    padding: 4px 10px;
+    padding: var(--space-1) var(--space-3);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     background: transparent;
@@ -640,7 +654,7 @@ a {
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: var(--grid-gutter);
-    padding: 24px 0;
+    padding: var(--space-7) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -672,21 +686,21 @@ a {
 
 .cal-card-day {
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-primary);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .cal-card-body {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-3);
 }
 
 .cal-card-section {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: var(--space-1);
 }
 
 .cal-card-label {
@@ -701,13 +715,13 @@ a {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .cal-card-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 16px;
+    gap: var(--space-1) var(--space-4);
 }
 
 .cal-card-link {
@@ -746,8 +760,8 @@ a {
 
 .policy-card {
     background: transparent;
-    padding: 0 0 48px;
-    margin-bottom: 48px;
+    padding: 0 0 var(--space-7);
+    margin-bottom: var(--space-7);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -760,8 +774,8 @@ a {
 .section-header {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0;
-    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-7);
 }
 
 .policies-content {
@@ -771,16 +785,16 @@ a {
 }
 
 .policies-content p {
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
 }
 
 .policies-heading {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0;
-    margin-top: 32px;
-    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
 }
 
 .policies-heading:first-child {
@@ -788,11 +802,11 @@ a {
 }
 
 .policies-content ul {
-    margin: 8px 0 16px 16px;
+    margin: var(--space-2) 0 var(--space-4) var(--space-4);
 }
 
 .policies-content li {
-    margin-bottom: 6px;
+    margin-bottom: var(--space-2);
     line-height: 1.5;
 }
 
@@ -810,7 +824,7 @@ a {
     display: flex;
     align-items: baseline;
     gap: var(--grid-gutter);
-    padding: 10px 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -820,10 +834,10 @@ a {
 
 .grade-percent {
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-primary);
     min-width: 56px;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .grade-label {
@@ -858,8 +872,8 @@ a {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    padding: 5px 10px;
-    margin-bottom: 24px;
+    padding: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-7);
     border: 1px solid rgba(0, 0, 0, 0.12);
     background: transparent;
     color: var(--text-primary);
@@ -868,14 +882,14 @@ a {
 .project-card h2 {
     font-size: var(--fs-heading);
     font-weight: 800;
-    letter-spacing: 0;
-    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-3);
 }
 
 .project-card .subtitle {
     font-size: var(--fs-body);
     color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 32px;
+    margin-bottom: var(--space-6);
     line-height: 1.6;
 }
 
@@ -883,13 +897,13 @@ a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--grid-gutter);
-    margin-bottom: 32px;
+    margin-bottom: var(--space-6);
 }
 
 .timeline-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
 }
 
 .timeline-label {
@@ -903,14 +917,14 @@ a {
 .timeline-value {
     font-size: var(--fs-body);
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .project-description {
     font-size: var(--fs-body);
     line-height: 1.6;
     color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 40px;
+    margin-bottom: var(--space-7);
 }
 
 .milestones {
@@ -925,14 +939,14 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: rgba(0, 0, 0, 0.3);
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
 }
 
 .milestone-item {
     display: flex;
     align-items: baseline;
     gap: var(--grid-gutter);
-    padding: 10px 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -1025,9 +1039,9 @@ a {
 .tap-to-play {
     color: white;
     font-size: var(--fs-small);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.02em;
-    padding: 6px 12px;
+    padding: var(--space-2) var(--space-3);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
@@ -1038,42 +1052,45 @@ a {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     column-gap: var(--grid-gutter);
-    padding: var(--grid-margin) var(--grid-margin) 100px;
+    padding: var(--grid-margin) var(--grid-margin) var(--space-9);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .grid-header {
     grid-column: 1 / -1;
     margin-bottom: var(--grid-gutter);
     line-height: 1.1;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .grid-title {
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0;
     color: var(--text-primary);
 }
 
 .grid-names {
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0;
     color: var(--text-primary);
 }
 
 .grid-subtitle {
     font-size: var(--fs-heading);
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.25);
 }
 
 .video-grid {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--grid-gutter);
+    gap: var(--space-3);
 }
 
 .video-card {
@@ -1099,27 +1116,27 @@ a {
 }
 
 .video-info {
-    padding: 6px 0 0;
+    padding: var(--space-2) 0 0;
 }
 
 .video-title-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 16px;
-    margin-bottom: 3px;
+    gap: var(--space-4);
+    margin-bottom: var(--space-1);
 }
 
 .video-title {
     font-size: var(--fs-body);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.25;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .video-date {
     font-size: var(--fs-small);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-muted);
     white-space: nowrap;
     letter-spacing: 0.02em;
@@ -1128,8 +1145,8 @@ a {
 .video-module {
     display: inline-block;
     font-size: var(--fs-body);
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.25);
 }
 
 .video-card.upcoming {
@@ -1238,7 +1255,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 16px;
+    margin-top: var(--space-4);
 }
 
 .modal-links {
@@ -1253,8 +1270,8 @@ a {
 .modal-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
     font-size: var(--fs-small);
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -1275,7 +1292,7 @@ a {
     display: none;
     background: none;
     border: none;
-    padding: 8px;
+    padding: var(--space-2);
     cursor: pointer;
     z-index: 1001;
 }
@@ -1371,14 +1388,14 @@ a {
     .nav-link {
         font-size: var(--fs-heading);
         font-weight: 400;
-        padding: 20px 40px;
+        padding: var(--space-7) var(--space-7);
         width: 100%;
         text-align: center;
         color: var(--text-primary);
     }
 
     .course-container {
-        padding: 0 var(--grid-margin) 60px;
+        padding: 0 var(--grid-margin) var(--space-8);
     }
 
     .course-header {
@@ -1392,7 +1409,7 @@ a {
 
     .staff-member-inline {
         flex-direction: column;
-        gap: 6px;
+        gap: var(--space-2);
     }
 
     .hero {
@@ -1404,18 +1421,18 @@ a {
     }
 
     .video-grid-section {
-        padding: var(--grid-margin) var(--grid-margin) 60px;
+        padding: var(--grid-margin) var(--grid-margin) var(--space-8);
     }
 
     .modal-content {
         width: 95%;
-        padding: 20px;
+        padding: var(--space-7);
     }
 
     .modal-controls {
         flex-direction: column;
         align-items: flex-end;
-        gap: 12px;
+        gap: var(--space-3);
     }
 
     .modal-links {
@@ -1427,7 +1444,7 @@ a {
     .modal-link {
         flex: 1;
         justify-content: center;
-        padding: 10px 16px;
+        padding: var(--space-3) var(--space-4);
     }
 
     .modal-close {
@@ -1441,7 +1458,7 @@ a {
 
     .grade-item {
         flex-direction: column;
-        gap: 2px;
+        gap: var(--space-1);
         align-items: flex-start;
     }
 
@@ -1460,7 +1477,7 @@ a {
     }
 
     .top-nav {
-        padding: 12px var(--grid-margin);
+        padding: var(--space-3) var(--grid-margin);
     }
 
     .nav-logo { grid-column: 1 / 3; }
@@ -1476,7 +1493,7 @@ a {
     }
 
     .video-grid-section {
-        padding: var(--grid-margin) var(--grid-margin) 48px;
+        padding: var(--grid-margin) var(--grid-margin) var(--space-7);
     }
 
     .video-grid {
@@ -1484,15 +1501,15 @@ a {
     }
 
     .course-container {
-        padding: 0 var(--grid-margin) 40px;
+        padding: 0 var(--grid-margin) var(--space-7);
     }
 
     .course-header {
-        padding: 24px 0 32px;
+        padding: var(--space-7) 0 var(--space-6);
     }
 
     .page-header {
-        padding: 20px 0 24px;
+        padding: var(--space-7) 0 var(--space-7);
     }
 
 }

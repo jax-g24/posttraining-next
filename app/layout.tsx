@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
+import { SpacingDebug } from "@/components/SpacingDebug";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Nav />
         {children}
+        <SpacingDebug />
       </body>
     </html>
   );
