@@ -86,7 +86,7 @@ body {
     color: var(--text-primary);
     font-size: var(--fs-body);
     line-height: 1.1;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -142,7 +142,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 700;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     transition: color 0.2s;
     white-space: nowrap;
 }
@@ -157,7 +157,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 700;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     transition: color 0.2s;
 }
 
@@ -203,7 +203,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 400;
     color: rgba(0, 0, 0, 0.35);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     transition: color 0.2s;
 }
 
@@ -250,7 +250,7 @@ a {
 .course-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin-bottom: var(--space-3);
 }
 
@@ -270,7 +270,7 @@ a {
     font-size: var(--fs-heading);
     line-height: 1.4;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin-top: 0;
     text-align: left;
     max-width: 640px;
@@ -347,7 +347,7 @@ a {
 .page-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin-bottom: var(--space-2);
 }
 
@@ -531,7 +531,7 @@ a {
 .module-title-dark {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     line-height: 1.05;
     color: var(--text-primary);
 }
@@ -541,7 +541,7 @@ a {
     font-weight: 600;
     color: var(--text-primary);
     padding: var(--space-3) 0 0;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .module-lectures {
@@ -578,7 +578,7 @@ a {
     font-size: 23px;
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .lecture-date {
@@ -586,7 +586,7 @@ a {
     color: rgba(0, 0, 0, 0.3);
     font-weight: 400;
     white-space: nowrap;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .lecture-description {
@@ -601,7 +601,7 @@ a {
     font-size: 15px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
     color: rgba(0, 0, 0, 0.3);
     margin-top: var(--space-2);
 }
@@ -628,7 +628,7 @@ a {
     font-size: 17px;
     font-weight: 400;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     padding: var(--space-1) var(--space-3);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -694,7 +694,7 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
     color: rgba(0, 0, 0, 0.35);
 }
 
@@ -702,7 +702,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 400;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .cal-card-body {
@@ -721,7 +721,7 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
     color: rgba(0, 0, 0, 0.3);
 }
 
@@ -729,7 +729,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .cal-card-row {
@@ -788,7 +788,7 @@ a {
 .section-header {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin: 0 0 var(--space-7);
 }
 
@@ -806,7 +806,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin-top: var(--space-6);
     margin-bottom: var(--space-2);
 }
@@ -851,7 +851,7 @@ a {
     font-weight: 400;
     color: var(--text-primary);
     min-width: 56px;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .grade-label {
@@ -885,7 +885,7 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     padding: var(--space-1) var(--space-3);
     margin-bottom: var(--space-7);
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -896,7 +896,7 @@ a {
 .project-card h2 {
     font-size: var(--fs-heading);
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     margin-bottom: var(--space-3);
 }
 
@@ -924,14 +924,14 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
     color: rgba(0, 0, 0, 0.3);
 }
 
 .timeline-value {
     font-size: var(--fs-body);
     font-weight: 600;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .project-description {
@@ -951,7 +951,7 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
     color: rgba(0, 0, 0, 0.3);
     margin-bottom: var(--space-4);
 }
@@ -1054,7 +1054,7 @@ a {
     color: white;
     font-size: var(--fs-small);
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     padding: var(--space-2) var(--space-3);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -1076,7 +1076,7 @@ a {
     grid-column: 1 / -1;
     margin-bottom: var(--space-6);
     line-height: 1.1;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .grid-title {
@@ -1150,7 +1150,7 @@ a {
     font-weight: 700;
     line-height: 1;
     margin: 0;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .video-date {
@@ -1158,7 +1158,7 @@ a {
     font-weight: 400;
     color: var(--text-muted);
     white-space: nowrap;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .video-module {
@@ -1289,7 +1289,7 @@ a {
     padding: var(--space-2) var(--space-3);
     font-size: var(--fs-small);
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     color: var(--text-primary);
     background: transparent;
     border: 1px solid var(--border-color);
