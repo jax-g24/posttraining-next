@@ -3,27 +3,27 @@
 import { useEffect, useState } from "react";
 
 const TOKEN_COLORS: Record<string, string> = {
-  "4px": "#FF6B6B",   // space-1: red
-  "8px": "#FF9F43",   // space-2: orange
-  "12px": "#FECA57",  // space-3: yellow
-  "16px": "#48DBFB",  // space-4: cyan
-  "24px": "#0ABDE3",  // space-5: blue
-  "32px": "#5F27CD",  // space-6: purple
-  "48px": "#FF6348",  // space-7: coral
-  "64px": "#1DD1A1",  // space-8: green
-  "96px": "#F368E0",  // space-9: pink
+  "6px": "#FF6B6B",    // space-1: red
+  "12px": "#FF9F43",   // space-2: orange
+  "18px": "#FECA57",   // space-3: yellow
+  "24px": "#48DBFB",   // space-4: cyan
+  "36px": "#0ABDE3",   // space-5: blue
+  "48px": "#5F27CD",   // space-6: purple
+  "72px": "#FF6348",   // space-7: coral
+  "96px": "#1DD1A1",   // space-8: green
+  "144px": "#F368E0",  // space-9: pink
 };
 
 const TOKEN_NAMES: Record<string, string> = {
-  "4px": "--space-1",
-  "8px": "--space-2",
-  "12px": "--space-3",
-  "16px": "--space-4",
-  "24px": "--space-5",
-  "32px": "--space-6",
-  "48px": "--space-7",
-  "64px": "--space-8",
-  "96px": "--space-9",
+  "6px": "--space-1",
+  "12px": "--space-2",
+  "18px": "--space-3",
+  "24px": "--space-4",
+  "36px": "--space-5",
+  "48px": "--space-6",
+  "72px": "--space-7",
+  "96px": "--space-8",
+  "144px": "--space-9",
 };
 
 function getColor(value: string): string | null {
