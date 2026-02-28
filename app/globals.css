@@ -1081,14 +1081,14 @@ a {
 
 .grid-title {
     font-size: var(--fs-heading);
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 0;
     color: var(--text-primary);
 }
 
 .grid-names {
     font-size: var(--fs-heading);
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 0;
     color: var(--text-primary);
 }
@@ -1147,7 +1147,7 @@ a {
 
 .video-title {
     font-size: var(--fs-body);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1;
     margin: 0;
     letter-spacing: 0.04em;
