@@ -11,7 +11,6 @@ export default function Home() {
         <div className="grid-header">
           <h2 className="grid-title">Building Thoughtful AI Systems,</h2>
           <p className="grid-names">Karina Nguyen &amp; Kevin Miao</p>
-          <p className="grid-subtitle">Lecture Series</p>
         </div>
         <div className="video-grid">
           {videos.map((video, i) => (

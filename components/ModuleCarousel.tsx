@@ -75,15 +75,15 @@ export function ModuleCarousel({ modules }: { modules: Module[] }) {
                   {isExpanded ? "−" : "+"}
                 </button>
               </div>
-              <div className="module-card-label">
-                Module {["One", "Two", "Three", "Four"][mod.number - 1]}
-              </div>
             </div>
           );
         })}
       </div>
 
       <div className="carousel-controls">
+        <div className="module-card-label">
+          Module {["One", "Two", "Three", "Four"][modules[index].number - 1]}
+        </div>
         <div className="carousel-dots">
           {modules.map((_, i) => (
             <button

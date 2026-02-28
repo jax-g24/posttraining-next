@@ -99,6 +99,68 @@ export function SpacingDebug() {
           }
         });
 
+        // Gap overlays (grid and flex)
+        const display = style.display;
+        if (display.includes("grid") || display.includes("flex")) {
+          const rowGap = parseFloat(style.rowGap);
+          const colGap = parseFloat(style.columnGap);
+          const children = Array.from(el.children) as HTMLElement[];
+
+          if (colGap > 0 && children.length > 1) {
+            const gapColor = getColor(String(colGap));
+            const gapToken = getToken(String(colGap));
+            if (gapColor) {
+              for (let ci = 0; ci < children.length - 1; ci++) {
+                const curr = children[ci].getBoundingClientRect();
+                const next = children[ci + 1].getBoundingClientRect();
+                if (next.left > curr.right) {
+                  results.push({
+                    id: `gc-${id++}`,
+                    top: Math.min(curr.top, next.top) + scrollY,
+                    left: curr.right + scrollX,
+                    width: next.left - curr.right,
+                    height: Math.max(curr.height, next.height),
+                    color: gapColor,
+                    label: `gap ${gapToken} (${Math.round(colGap)}px)`,
+                    type: "padding",
+                  });
+                }
+              }
+            }
+          }
+
+          if (rowGap > 0 && children.length > 1) {
+            const gapColor = getColor(String(rowGap));
+            const gapToken = getToken(String(rowGap));
+            if (gapColor) {
+              const seen = new Set<string>();
+              for (let ci = 0; ci < children.length - 1; ci++) {
+                const curr = children[ci].getBoundingClientRect();
+                for (let cj = ci + 1; cj < children.length; cj++) {
+                  const next = children[cj].getBoundingClientRect();
+                  if (next.top > curr.bottom + 1) {
+                    const key = `${Math.round(curr.bottom)}-${Math.round(next.top)}`;
+                    if (!seen.has(key)) {
+                      seen.add(key);
+                      results.push({
+                        id: `gr-${id++}`,
+                        top: curr.bottom + scrollY,
+                        left: rect.left + scrollX,
+                        width: rect.width,
+                        height: next.top - curr.bottom,
+                        color: gapColor,
+                        label: `gap ${gapToken} (${Math.round(rowGap)}px)`,
+                        type: "padding",
+                      });
+                    }
+                    break;
+                  }
+                }
+              }
+            }
+          }
+        }
+
         // Padding overlays
         sides.forEach((side) => {
           const val = parseFloat(style[`padding${side}` as keyof CSSStyleDeclaration] as string);
@@ -195,7 +257,7 @@ export function SpacingDebug() {
           ))}
           <div style={{ marginTop: 6, borderTop: "1px solid #ddd", paddingTop: 4 }}>
             <span style={{ opacity: 0.5 }}>stripes = margin</span><br />
-            <span style={{ opacity: 0.5 }}>solid = padding</span>
+            <span style={{ opacity: 0.5 }}>solid = padding / gap</span>
           </div>
         </div>
       )}

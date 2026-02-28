@@ -35,8 +35,8 @@
     --fs-small: 15px;
 
     --grid-columns: 12;
-    --grid-gutter: var(--space-7);
-    --grid-margin: var(--space-4);
+    --grid-gutter: var(--space-6);
+    --grid-margin: var(--space-6);
 
     --bg: #eeeeee;
     --bg-card: #fff;
@@ -72,7 +72,7 @@ body {
     color: var(--text-primary);
     font-size: var(--fs-body);
     line-height: 1.1;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -120,7 +120,7 @@ a {
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     column-gap: var(--grid-gutter);
     align-items: center;
-    padding: var(--space-7) var(--grid-margin);
+    padding: var(--space-6) var(--grid-margin);
 }
 
 .nav-logo {
@@ -128,7 +128,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     transition: color 0.2s;
 }
 
@@ -142,7 +142,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     transition: color 0.2s;
 }
 
@@ -188,7 +188,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 400;
     color: rgba(0, 0, 0, 0.35);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     transition: color 0.2s;
 }
 
@@ -235,7 +235,7 @@ a {
 .course-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-bottom: var(--space-3);
 }
 
@@ -255,7 +255,7 @@ a {
     font-size: var(--fs-heading);
     line-height: 1.4;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-top: 0;
     text-align: left;
     max-width: 640px;
@@ -332,7 +332,7 @@ a {
 .page-title {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-bottom: var(--space-2);
 }
 
@@ -383,7 +383,7 @@ a {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: var(--space-4);
 }
 
@@ -413,8 +413,6 @@ a {
 }
 
 .carousel-arrows {
-    position: absolute;
-    right: 0;
     display: flex;
     gap: var(--space-2);
 }
@@ -518,7 +516,7 @@ a {
 .module-title-dark {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     line-height: 1.05;
     color: var(--text-primary);
 }
@@ -528,7 +526,7 @@ a {
     font-weight: 600;
     color: var(--text-primary);
     padding: var(--space-3) 0 0;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .module-lectures {
@@ -565,7 +563,7 @@ a {
     font-size: 23px;
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .lecture-date {
@@ -599,7 +597,7 @@ a {
 }
 
 .lecture-tag.tag-release {
-    color: rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .lecture-links {
@@ -615,7 +613,7 @@ a {
     font-size: 17px;
     font-weight: 400;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     padding: var(--space-1) var(--space-3);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -689,7 +687,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 400;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .cal-card-body {
@@ -716,7 +714,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .cal-card-row {
@@ -775,7 +773,7 @@ a {
 .section-header {
     font-size: var(--fs-display);
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin: 0 0 var(--space-7);
 }
 
@@ -793,7 +791,7 @@ a {
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-top: var(--space-6);
     margin-bottom: var(--space-2);
 }
@@ -838,7 +836,7 @@ a {
     font-weight: 400;
     color: var(--text-primary);
     min-width: 56px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .grade-label {
@@ -872,7 +870,7 @@ a {
     font-size: var(--fs-small);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     padding: var(--space-1) var(--space-3);
     margin-bottom: var(--space-7);
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -883,7 +881,7 @@ a {
 .project-card h2 {
     font-size: var(--fs-heading);
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-bottom: var(--space-3);
 }
 
@@ -918,7 +916,7 @@ a {
 .timeline-value {
     font-size: var(--fs-body);
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .project-description {
@@ -1041,7 +1039,7 @@ a {
     color: white;
     font-size: var(--fs-small);
     font-weight: 400;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     padding: var(--space-2) var(--space-3);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -1063,7 +1061,7 @@ a {
     grid-column: 1 / -1;
     margin-bottom: var(--space-6);
     line-height: 1.1;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .grid-title {
@@ -1084,7 +1082,7 @@ a {
     font-size: var(--fs-heading);
     font-weight: 400;
     margin-bottom: 0;
-    color: rgba(0, 0, 0, 0.25);
+    color: var(--text-primary);
 }
 
 .video-grid {
@@ -1107,6 +1105,7 @@ a {
 }
 
 .video-thumbnail img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1118,7 +1117,9 @@ a {
 }
 
 .video-info {
-    padding: var(--space-2) 0 var(--space-4);
+    margin: 0;
+    padding: 6px 0 0;
+    line-height: 1;
 }
 
 .video-title-row {
@@ -1126,14 +1127,15 @@ a {
     justify-content: space-between;
     align-items: baseline;
     gap: var(--space-4);
-    margin-bottom: var(--space-1);
+    margin: 0;
 }
 
 .video-title {
     font-size: var(--fs-body);
     font-weight: 400;
-    line-height: 1.25;
-    letter-spacing: 0.02em;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: 0.04em;
 }
 
 .video-date {
@@ -1141,22 +1143,18 @@ a {
     font-weight: 400;
     color: var(--text-muted);
     white-space: nowrap;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .video-module {
     display: inline-block;
     font-size: var(--fs-body);
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.25);
+    color: var(--text-primary);
 }
 
 .video-card.upcoming {
     cursor: default;
-}
-
-.video-card.upcoming .video-title {
-    color: rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
@@ -1276,7 +1274,7 @@ a {
     padding: var(--space-2) var(--space-3);
     font-size: var(--fs-small);
     font-weight: 400;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     color: var(--text-primary);
     background: transparent;
     border: 1px solid var(--border-color);

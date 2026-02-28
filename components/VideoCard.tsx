@@ -25,8 +25,7 @@ export function VideoCard({ video }: { video: VideoItem }) {
         <img src={video.thumbnail} alt={`${video.title} thumbnail`} />
       </div>
       <div className="video-info">
-        <h3 className="video-title">{video.title}, {video.date}</h3>
-        <span className="video-module">{video.module}</span>
+        <h3 className="video-title">{video.title}</h3>
       </div>
     </article>
   );
