@@ -26,6 +26,7 @@ export function VideoCard({ video }: { video: VideoItem }) {
       </div>
       <div className="video-info">
         <h3 className="video-title">{video.title}</h3>
+        <p className="video-module">{video.module}</p>
       </div>
     </article>
   );
