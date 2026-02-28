@@ -144,6 +144,7 @@ a {
     color: rgba(255, 255, 255, 0.6);
     letter-spacing: 0.04em;
     transition: color 0.2s;
+    white-space: nowrap;
 }
 
 .nav-logo:hover {
